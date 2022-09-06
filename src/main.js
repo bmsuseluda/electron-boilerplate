@@ -54,16 +54,14 @@ app.on("ready", () => {
       // in your production app.
       nodeIntegration: true,
       contextIsolation: false,
-      // Spectron needs access to remote module
-      enableRemoteModule: env.name === "test"
-    }
+    },
   });
 
   mainWindow.loadURL(
     url.format({
       pathname: path.join(__dirname, "app.html"),
       protocol: "file:",
-      slashes: true
+      slashes: true,
     })
   );
 
