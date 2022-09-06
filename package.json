@@ -18,7 +18,42 @@
     "directories": {
       "buildResources": "resources"
     },
-    "publish": null
+    "publish": null,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "${name}-${version}-portable.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
@@ -28,7 +63,7 @@
     "e2e": "mocha temp/e2e.js --require source-map-support/register",
     "test": "npm run unit && npm run e2e",
     "start": "node build/start.js",
-    "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
+    "release": "webpack --config=build/webpack.app.config.js --env=production && electron-builder"
   },
   "dependencies": {
     "fs-jetpack": "^4.1.0"
@@ -39,7 +74,7 @@
     "babel-loader": "^8.2.2",
     "chai": "^4.1.0",
     "css-loader": "^5.2.0",
-    "electron": "^13.0.1",
+    "electron": "8.2.0",
     "electron-builder": "^22.5.1",
     "electron-mocha": "^10.0.0",
     "mocha": "^8.3.2",
