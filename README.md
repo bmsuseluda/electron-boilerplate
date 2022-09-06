@@ -15,7 +15,7 @@ npm run release
 
 Add dist/linux-unpacked/electron-boilerplate as a non steam game and start
 
-## Not Working App with electron 8.2.0
+## Not Working App with electron version greater than 8
 
 With electron version greater than 8 the app still works on linux natively but does not work via steam as a non steam game.
 
